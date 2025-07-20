@@ -1,5 +1,6 @@
 import ServiceSection from "../components/ServiceSection/ServiceSection";
 import { notFound } from 'next/navigation';
+import Hero from '../components/Hero/Hero';
 
 export const metadata = {
   title: "Home Page | Car-Care",
@@ -37,6 +38,7 @@ export default async function Home() {
   
   return (
     <div>
+      <Hero />
       <ServiceSection services = {data} />
     </div>
   );
