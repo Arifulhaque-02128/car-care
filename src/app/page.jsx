@@ -20,8 +20,7 @@ const getServices = async () => {
 
 export default async function Home() {
 
-  const { id } = params;
-  const service = await getServices(id);
+  const service = await getServices();
 
   if (!service || !service.data) {
     notFound(); 
