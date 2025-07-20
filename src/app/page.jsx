@@ -1,5 +1,5 @@
 import ServiceSection from "../components/ServiceSection/ServiceSection";
-
+import { notFound } from 'next/navigation';
 
 export const metadata = {
   title: "Home Page | Car-Care",
@@ -20,7 +20,14 @@ const getServices = async () => {
 
 export default async function Home() {
 
-  const {data} = await getServices();
+  const { id } = params;
+  const service = await getServices(id);
+
+  if (!service || !service.data) {
+    notFound(); 
+  }
+
+  const { data } = service;
   
   return (
     <div>

@@ -1,6 +1,7 @@
 import React from 'react'
 import ServiceDetailsHero from '../../../components/ServiceSection/ServiceDetailsHero';
 import ServiceDetailsMain from '../../../components/ServiceSection/ServiceDetailsMain';
+import { notFound } from 'next/navigation';
 
 
 const getSingleService = async (id) => {
@@ -16,7 +17,7 @@ const getSingleService = async (id) => {
 
 
 export async function generateMetadata({ params }) {
-  const { id } = await params;
+  const { id } = params;
   const productInfo = await getSingleService(id);
 
   // console.log("productInfo", productInfo);
@@ -30,9 +31,14 @@ export async function generateMetadata({ params }) {
 
 const SingleService = async ({params}) => {
 
-  const {id} = params;
-  
-  const {data} = await getSingleService(id);
+  const { id } = params;
+  const service = await getSingleService(id);
+
+  if (!service || !service.data) {
+    notFound(); // show 404 page instead of breaking the build
+  }
+
+  const { data } = service;
 
 //   console.log(data);
 

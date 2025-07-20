@@ -20,7 +20,9 @@ const getSingleBooking = async (id) => {
 }
 
 const UpdateBookingPage = async ({params}) => {
+
   const {id} = params;
+  
   const singleBooking = await getSingleBooking(id);
 
   // console.log("UPDATE PAGE ::::", singleBooking);

@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import CheckoutForm from '../../../components/CheckoutForm/CheckoutForm';
 
 export const metadata = {
@@ -20,8 +21,13 @@ const getSingleService = async (id) => {
 const CheckoutPage = async ({params}) => {
 
   const { id } = params;
+  const service = await getSingleService(id);
 
-  const {data} = await getSingleService(id);
+  if (!service || !service.data) {
+    notFound(); // show 404 page instead of breaking the build
+  }
+
+  const { data } = service;
 
   // console.log("DATA :::", data);
 
