@@ -37,7 +37,8 @@ const AllBookings = () => {
 
   const handleDeleteService = async (_id) => {
     setLoading(true);
-    const res = await fetch(`/api/bookings/${_id}`, {
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+    const res = await fetch(`${baseUrl}/api/bookings/${_id}`, {
         method : "DELETE",
     });
 
