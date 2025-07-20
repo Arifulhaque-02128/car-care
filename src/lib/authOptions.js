@@ -1,6 +1,6 @@
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcrypt";
-import dbConnect from "../../../../lib/dbconnect";
+import dbConnect from "./dbconnect";
 import GoogleProvider from "next-auth/providers/google";
 import GitHubProvider from "next-auth/providers/github";
 
@@ -52,7 +52,7 @@ const authOptions = {
 
   callbacks: {
     
-    async signIn({ user, account, profile, credentials }) {
+    async signIn({ user, account }) {
         const {provider, providerAccountId } = account;
 
         const {name, image, email} = user;

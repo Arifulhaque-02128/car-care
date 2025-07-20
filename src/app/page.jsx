@@ -8,7 +8,7 @@ export const metadata = {
 
 
 const getServices = async () => {
-  const res = await fetch("/api/services");
+  const res = await fetch("http://localhost:3000/api/services");
   if (!res.ok) {
     console.error("❌ API responded with error:", res.status);
     return null;
