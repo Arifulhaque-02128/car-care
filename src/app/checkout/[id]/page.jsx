@@ -7,7 +7,7 @@ export const metadata = {
 
 
 export const getSingleService = async (id) => {
-    const res = await fetch(`http://localhost:3000/api/services/${id}`);
+    const res = await fetch(`/api/services/${id}`);
 
     if (!res.ok) {
         console.error("❌ API responded with error:", res.status);
@@ -22,7 +22,7 @@ const CheckoutPage = async ({params}) => {
 
   const {data} = await getSingleService(id);
 
-  console.log("DATA :::", data);
+  // console.log("DATA :::", data);
 
   return (
     <div>

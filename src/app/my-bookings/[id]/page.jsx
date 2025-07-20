@@ -9,7 +9,7 @@ export const metadata = {
 
 
 export const getSingleBooking = async (id) => {
-    const res = await fetch(`http://localhost:3000/api/bookings/${id}`);
+    const res = await fetch(`/api/bookings/${id}`);
 
     if (!res.ok) {
         console.error("❌ API responded with error:", res.status);
@@ -22,7 +22,7 @@ const UpdateBookingPage = async ({params}) => {
   const {id} = await params;
   const singleBooking = await getSingleBooking(id);
 
-  console.log("UPDATE PAGE ::::", singleBooking);
+  // console.log("UPDATE PAGE ::::", singleBooking);
 
   return (
     <div>

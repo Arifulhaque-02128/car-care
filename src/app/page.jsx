@@ -1,6 +1,4 @@
 import ServiceSection from "../components/ServiceSection/ServiceSection";
-import { getServerSession } from "next-auth";
-import {authOptions} from "./api/auth/[...nextauth]/route";
 
 
 export const metadata = {
@@ -10,7 +8,7 @@ export const metadata = {
 
 
 const getServices = async () => {
-  const res = await fetch("http://localhost:3000/api/services");
+  const res = await fetch("/api/services");
   if (!res.ok) {
     console.error("❌ API responded with error:", res.status);
     return null;
@@ -21,10 +19,6 @@ const getServices = async () => {
 export default async function Home() {
 
   const {data} = await getServices();
-
-  // console.log(data);
-  // const sessions = await getServerSession(authOptions);
-  // console.log("Sesssion ::::", sessions);
   
   return (
     <div>

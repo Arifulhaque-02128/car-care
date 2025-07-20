@@ -1,6 +1,6 @@
 import { getServerSession } from "next-auth";
 import dbConnect from "../../../lib/dbconnect";
-import {authOptions} from '../auth/[...nextauth]/route'
+import {authOptions} from '../auth/[...nextauth]/route';
 
 
 export const GET = async (req) => {

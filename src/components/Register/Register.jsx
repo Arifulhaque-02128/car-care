@@ -2,8 +2,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
-import { FaFacebookSquare, FaLinkedin } from "react-icons/fa";
-import { FcGoogle } from "react-icons/fc";
 import registerUser from '../../app/actions/Auth/RegisterUser';
 import { Toaster } from 'react-hot-toast';
 import toast from 'react-hot-toast';
