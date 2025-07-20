@@ -3,7 +3,7 @@ import ServiceDetailsHero from '../../../components/ServiceSection/ServiceDetail
 import ServiceDetailsMain from '../../../components/ServiceSection/ServiceDetailsMain';
 
 
-export const getSingleService = async (id) => {
+const getSingleService = async (id) => {
     // const res = await fetch(`http://localhost:3000/api/services/${id}`);
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/services/${id}`);
 
@@ -30,7 +30,8 @@ export async function generateMetadata({ params }) {
 
 const SingleService = async ({params}) => {
 
-  const {id} = await params;
+  const {id} = params;
+  
   const {data} = await getSingleService(id);
 
 //   console.log(data);

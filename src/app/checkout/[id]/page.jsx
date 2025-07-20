@@ -6,7 +6,7 @@ export const metadata = {
 };
 
 
-export const getSingleService = async (id) => {
+const getSingleService = async (id) => {
     // const res = await fetch(`http://localhost:3000/api/services/${id}`);
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/services/${id}`);
 
@@ -19,7 +19,7 @@ export const getSingleService = async (id) => {
 
 const CheckoutPage = async ({params}) => {
 
-  const { id } = await params;
+  const { id } = params;
 
   const {data} = await getSingleService(id);
 
