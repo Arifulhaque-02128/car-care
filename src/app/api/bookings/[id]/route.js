@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth";
-import { authOptions } from "../../auth/[...nextauth]/route";
 import dbConnect from "../../../../lib/dbconnect";
 import { ObjectId } from "mongodb";
+import authOptions from "../../../../lib/authOptions";
 
 
 export const GET = async (req, {params}) => {
