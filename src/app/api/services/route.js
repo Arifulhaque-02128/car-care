@@ -4,6 +4,6 @@ export const GET = async (req) => {
     const collection = await dbConnect("services");
     const data = await collection.find({}).toArray();
 
-    return Response.json(data);
+    return Response.json({data});
 };
 

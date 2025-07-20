@@ -8,5 +8,5 @@ export const GET = async (req, {params}) => {
     const collection = await dbConnect('services');
     const data = await collection.findOne({_id : new ObjectId(id)});
 
-    return Response.json(data);
+    return Response.json({data});
 }
