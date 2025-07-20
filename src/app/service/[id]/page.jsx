@@ -27,7 +27,7 @@ export async function generateMetadata({ params }) {
   const { id } = params;
   const productInfo = await getSingleService(id);
 
-  // console.log("productInfo", productInfo);
+  console.log("productInfo", productInfo);
   
   return {
     title: `${productInfo?.data?.title} | Car-Care`,
@@ -40,6 +40,8 @@ const SingleService = async ({params}) => {
 
   const { id } = params;
   const service = await getSingleService(id);
+
+  console.log("SERVICE :::", service);
 
   if (!service || !service.data) {
     notFound(); // show 404 page instead of breaking the build
