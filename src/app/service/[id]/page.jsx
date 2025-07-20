@@ -4,16 +4,23 @@ import ServiceDetailsMain from '../../../components/ServiceSection/ServiceDetail
 import { notFound } from 'next/navigation';
 
 
-const getSingleService = async (id) => {
-    // const res = await fetch(`http://localhost:3000/api/services/${id}`);
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/services/${id}`);
+const getSingleService = async () => {
+  try {
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+    const res = await fetch(`${baseUrl}api/services/${id}`, {
+      cache: 'no-store', 
+    });
 
     if (!res.ok) {
-        console.error("❌ API responded with error:", res.status);
-        return null;
+      console.error("❌ API responded with error:", res.status);
+      return null;
     }
     return res.json();
-}
+  } catch (error) {
+    console.error("❌ Failed to fetch services:", error);
+    return null;
+  }
+};
 
 
 export async function generateMetadata({ params }) {
