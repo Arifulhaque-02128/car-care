@@ -4,7 +4,7 @@ import ServiceDetailsMain from '../../../components/ServiceSection/ServiceDetail
 import { notFound } from 'next/navigation';
 
 
-const getSingleService = async () => {
+const getSingleService = async (id) => {
   try {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
     const res = await fetch(`${baseUrl}api/services/${id}`, {
