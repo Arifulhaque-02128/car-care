@@ -8,8 +8,9 @@ export const metadata = {
 };
 
 
-export const getSingleBooking = async (id) => {
-    const res = await fetch(`/api/bookings/${id}`);
+const getSingleBooking = async (id) => {
+    // const res = await fetch(`/api/bookings/${id}`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/bookings/${id}`);
 
     if (!res.ok) {
         console.error("❌ API responded with error:", res.status);
@@ -19,7 +20,7 @@ export const getSingleBooking = async (id) => {
 }
 
 const UpdateBookingPage = async ({params}) => {
-  const {id} = await params;
+  const {id} = params;
   const singleBooking = await getSingleBooking(id);
 
   // console.log("UPDATE PAGE ::::", singleBooking);
