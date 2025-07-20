@@ -7,7 +7,8 @@ export const metadata = {
 
 
 export const getSingleService = async (id) => {
-    const res = await fetch(`http://localhost:3000/api/services/${id}`);
+    // const res = await fetch(`http://localhost:3000/api/services/${id}`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/services/${id}`);
 
     if (!res.ok) {
         console.error("❌ API responded with error:", res.status);
