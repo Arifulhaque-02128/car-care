@@ -4,10 +4,12 @@ import ServiceDetailsMain from '../../../components/ServiceSection/ServiceDetail
 import { notFound } from 'next/navigation';
 
 
+export const dynamic = 'force-dynamic';
+
 const getSingleService = async (id) => {
   try {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-    const res = await fetch(`${baseUrl}api/services/${id}`, {
+    const res = await fetch(`${baseUrl}/api/services/${id}`, {
       cache: 'no-store', 
     });
 
@@ -27,7 +29,7 @@ export async function generateMetadata({ params }) {
   const { id } = params;
   const productInfo = await getSingleService(id);
 
-  console.log("productInfo", productInfo);
+  // console.log("productInfo", productInfo);
   
   return {
     title: `${productInfo?.data?.title} | Car-Care`,
