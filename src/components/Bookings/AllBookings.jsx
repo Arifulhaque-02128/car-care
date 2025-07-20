@@ -24,7 +24,7 @@ const AllBookings = () => {
         try {
             const res = await fetch("/api/bookings");
             const result = await res.json();
-            console.log("Fetch :::", result);
+            // console.log("Fetch :::", result);
             setMyBookings(result);
         } catch (err) {
             console.error("Error fetching bookings:", err);

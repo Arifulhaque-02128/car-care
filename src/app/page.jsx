@@ -8,15 +8,23 @@ export const metadata = {
 
 
 const getServices = async () => {
-  // const res = await fetch("http://localhost:3000/api/services");
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/services`);
-  console.log(res);
+  try {
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+    const res = await fetch(`${baseUrl}/api/services`, {
+      cache: 'no-store', // optional: if you're testing changes live
+    });
 
-  if (!res.ok) {
-    console.error("❌ API responded with error:", res.status);
+    console.log("HOME :::", res);
+
+    if (!res.ok) {
+      console.error("❌ API responded with error:", res.status);
+      return null;
+    }
+    return res.json();
+  } catch (error) {
+    console.error("❌ Failed to fetch services:", error);
     return null;
   }
-  return res.json();
 };
 
 export default async function Home() {
