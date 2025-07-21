@@ -20,9 +20,9 @@ const NavBar = () => {
                 </div>
                 <ul
                     tabIndex={0}
-                    className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                    <li className='font-semibold'><Link href={'/'}>Home</Link></li>
-                    <li><Link href={'/about'}>About</Link></li>
+                    className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-40 p-2 shadow">
+                    <li className='font-semibold p-2'><Link href={'/'}>Home</Link></li>
+                    <li className='font-semibold p-2'><Link href={'/about'}>About</Link></li>
                     {/* <li>
                     <a>Services</a>
                     <ul className="p-2">
@@ -34,13 +34,13 @@ const NavBar = () => {
                         (data?.user?.email) &&
                         (
                             (data?.user?.email === "ariiifhaque@gmail.com" || data?.user?.email === "jsmith@gmail.com") ?
-                            <li className='font-semibold'><Link href={'/admin/dashboard'}>All Bookings</Link></li>
+                            <li className='font-semibold p-2'><Link href={'/admin/dashboard'}>All Bookings</Link></li>
                             :
-                            <li className='font-semibold'><Link href={'/my-bookings'}>My Bookings</Link></li>
+                            <li className='font-semibold p-2'><Link href={'/my-bookings'}>My Bookings</Link></li>
                         )
                         
                     }
-                    <li><Link href={'/contact'}>Contact</Link></li>
+                    <li className='font-semibold p-2'><Link href={'/contact'}>Contact</Link></li>
                 </ul>
             </div>
             <Link href={'/'}>
@@ -81,7 +81,7 @@ const NavBar = () => {
                     <ul className="menu menu-horizontal">
                         <li>
                             <details>
-                                <summary>
+                                <summary className='mr-4'>
                                     {
                                         data?.user?.image ?
                                         <Image src={data?.user?.image} width={50} height={50} alt='profie picture' className='rounded-full border-1'/>
@@ -93,7 +93,7 @@ const NavBar = () => {
                                     
                                 </summary>
     
-                                <ul className="p-2 w-40">
+                                <ul className="p-2 w-30 z-50">
                                     <li className='font-semibold'>
                                         <button
                                             onClick={async () => {
